@@ -1,0 +1,14 @@
+[tools]
+ruby = "latest"
+
+[tasks.build]
+run = "ruby -c Formula/ruxel.rb && ruby -c Formula/ruxel-preview.rb"
+
+[tasks.test]
+depends = ["build"]
+
+[tasks.lint]
+depends = ["build"]
+
+[tasks.fmt]
+depends = ["build"]

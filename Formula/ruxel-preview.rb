@@ -1,27 +1,27 @@
-# source-sha: c89354423b58670c9eb6e1a62829173c6038c8cf
+# source-sha: 202617298cc1045ed668d3b10872173764dd6a85
 class RuxelPreview < Formula
   desc "Fast Rust executor for a closed Ansible workload"
   homepage "https://github.com/tailrocks/ruxel"
-  version "0.1.0-preview.82+c893544"
+  version "0.1.0-preview.83+2026172"
   license "Apache-2.0"
   on_macos do
     on_arm do
       url "https://github.com/tailrocks/ruxel/releases/download/preview/ruxel-aarch64-apple-darwin.tar.gz"
-      sha256 "7a41af1523c10cbf5b702e3afb5704f56f39f5d47dd6f1eaf6b6e9daddfa1a27"
+      sha256 "144d17a2ce1057b51696c3317ea91a9ae59b63cbeb6c918a931a46138b5ecb2c"
     end
     on_intel do
       url "https://github.com/tailrocks/ruxel/releases/download/preview/ruxel-x86_64-apple-darwin.tar.gz"
-      sha256 "25eea432c52bea53f5ebad4b358707aa1cbd881ee95e213dad19a39d0fb6560a"
+      sha256 "4572ff72e2be226138c7995a80563ddbb3e01a64a3cb7eb9036d8781e97c0507"
     end
   end
   on_linux do
     on_arm do
       url "https://github.com/tailrocks/ruxel/releases/download/preview/ruxel-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "b75947ca45e137a41665b6a0d23784f2ddabad270a33fe382381d54ea9ca20e0"
+      sha256 "4e000e41e308215c5e9f5ed0ac4346744fe5990de637e83cb8173d2f71f7de2b"
     end
     on_intel do
       url "https://github.com/tailrocks/ruxel/releases/download/preview/ruxel-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "0d6b2b359cbca0bc565ea402ffda5ef57458c3d359c1ac92ea7f8b0aea2a3d12"
+      sha256 "9863e98875245682031e93afdd16f895c01db2dceaa969df242b63227e48d6a3"
     end
   end
   conflicts_with "tailrocks/ruxel/ruxel", because: "preview and stable install same binary"

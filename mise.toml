@@ -1,17 +1,24 @@
+# Gate contract (tap class): each CI gate resolves to exactly one disjoint
+# mise task. install is the workflow-level `mise install --locked` command.
+# build = formula Ruby syntax check (only ruby -c identity). lint = actionlint
+# over this repository's workflows. No test gate: the repository has no
+# scripts and no brew-distinct check (stable formula is a disable! placeholder
+# pinning a mutable branch tarball). No fmt gate: no formatter is pinned.
 [settings]
 lockfile = true
 
 [tools]
+actionlint = "1.7.12"
 ruby = "latest"
 
-[tasks.build]
-run = "ruby -c Formula/ruxel.rb && ruby -c Formula/ruxel-preview.rb"
+[tasks.actionlint]
+run = "actionlint"
 
-[tasks.test]
-depends = ["build"]
+[tasks.build]
+run = 'set -e; for f in Formula/*.rb; do ruby -c "$f" || exit 1; done'
 
 [tasks.lint]
-depends = ["build"]
+depends = ["actionlint"]
 
-[tasks.fmt]
-depends = ["build"]
+[tasks.ci]
+depends = ["build", "lint"]

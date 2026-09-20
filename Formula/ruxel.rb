@@ -9,6 +9,8 @@ class Ruxel < Formula
 
   disable! date: "2026-08-09", because: "first stable release is being prepared"
 
+  conflicts_with "ruxel-preview", because: "preview and stable install same binary"
+
   def install
     odie "Stable binary release is not published yet; install ruxel@preview"
   end
